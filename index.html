@@ -36,7 +36,69 @@ nav{
 .lang-pill{display:flex;background:var(--pearl);border-radius:20px;padding:3px;gap:2px}
 .lbtn{padding:5px 13px;border:none;background:none;border-radius:16px;font-size:11px;font-family:'Jost',sans-serif;cursor:pointer;color:var(--ink);opacity:.4;transition:all .25s;font-weight:400;letter-spacing:.06em}
 .lbtn.on{background:var(--ink);color:var(--cream);opacity:1}
-@media(max-width:768px){nav{padding:13px 20px}.nav-links{display:none}}
+
+/* ── BURGER ── */
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;z-index:210}
+.burger span{display:block;width:22px;height:1.5px;background:var(--ink);transition:all .3s;border-radius:2px}
+.burger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.burger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+.mobile-menu{
+  display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:205;
+  background:rgba(245,237,224,.98);backdrop-filter:blur(20px);
+  flex-direction:column;align-items:center;justify-content:center;gap:36px;
+  padding:80px 40px;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu a{
+  font-family:'Playfair Display',serif;font-size:clamp(26px,7vw,38px);font-style:italic;
+  color:var(--ink);text-decoration:none;font-weight:400;opacity:.7;
+  transition:opacity .2s,color .2s;text-align:center;
+}
+.mobile-menu a:hover{opacity:1;color:var(--gold)}
+.mobile-menu .m-lang{
+  display:flex;gap:8px;margin-top:8px;
+}
+.mobile-menu .m-lang button{
+  padding:10px 24px;border:1px solid rgba(26,39,38,.2);background:none;
+  font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.1em;
+  text-transform:uppercase;cursor:pointer;color:var(--ink);transition:all .2s;
+}
+.mobile-menu .m-lang button.on{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+
+@media(max-width:768px){
+  nav{padding:13px 20px}
+  .nav-links{display:none}
+  .burger{display:flex}
+}
+
+/* ── MOBILE PHOTO FIXES ── */
+@media(max-width:600px){
+  .loc-photos{grid-template-columns:1fr}
+  .lp1{aspect-ratio:16/9;grid-column:auto}
+  .lp2,.lp3{aspect-ratio:4/3}
+  .prog-mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .pm-c1{grid-row:auto;aspect-ratio:4/3}
+  .pm-cell{aspect-ratio:4/3}
+  .event-badge{gap:16px;padding:16px 20px}
+  .badge-sep{display:none}
+  .found-photo-placeholder{aspect-ratio:4/3}
+  .dress-visual{display:none}
+}
+
+/* ── FLORENCE SECTION ── */
+#florence{background:var(--pearl);padding:80px 48px}
+.flor-inner{max-width:820px;margin:0 auto}
+.flor-simple{display:flex;flex-direction:column;gap:32px;margin-top:40px}
+.flor-img-sm{}
+.flor-img-badge{display:inline-block;background:var(--sage);color:var(--cream);font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;padding:6px 14px;margin-bottom:16px}
+.flor-history{font-size:15px;line-height:1.85;color:rgba(26,39,38,.65)}
+.flor-history em{font-style:italic;color:var(--ink);font-family:'Playfair Display',serif}
+.flor-bridge{background:var(--ink);color:var(--cream);padding:28px 32px;border-left:3px solid var(--gold)}
+.flor-bridge p{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;font-weight:400;line-height:1.6;color:rgba(245,237,224,.88)}
+.bridge-connect{font-size:12px;color:rgba(245,237,224,.4);margin-top:12px;letter-spacing:.04em;font-style:normal;font-family:'Jost',sans-serif}
+@media(max-width:600px){#florence{padding:60px 20px}}
 
 /* ── SLOGAN HERO ── */
 .slogan-hero{
@@ -406,11 +468,30 @@ footer{background:var(--ink);border-top:1px solid rgba(245,237,224,.07);padding:
     <li><a href="#donate" data-en="Donate" data-ua="Донат">Donate</a></li>
     <li><a href="#contact" data-en="Contact" data-ua="Контакт">Contact</a></li>
   </ul>
-  <div class="lang-pill">
-    <button class="lbtn on" onclick="setLang('en')">EN</button>
-    <button class="lbtn" onclick="setLang('ua')">UA</button>
+  <div style="display:flex;align-items:center;gap:16px">
+    <div class="lang-pill">
+      <button class="lbtn on" onclick="setLang('en')">EN</button>
+      <button class="lbtn" onclick="setLang('ua')">UA</button>
+    </div>
+    <button class="burger" id="burger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#cause" onclick="closeMobileMenu()" data-en="Our Cause" data-ua="Наша Місія">Our Cause</a>
+  <a href="#programme" onclick="closeMobileMenu()" data-en="Programme" data-ua="Програма">Programme</a>
+  <a href="#location" onclick="closeMobileMenu()" data-en="Location" data-ua="Локація">Location</a>
+  <a href="#tickets" onclick="closeMobileMenu()" data-en="Tickets" data-ua="Квитки">Tickets</a>
+  <a href="#donate" onclick="closeMobileMenu()" data-en="Donate" data-ua="Донат">Donate</a>
+  <a href="#contact" onclick="closeMobileMenu()" data-en="Contact" data-ua="Контакт">Contact</a>
+  <div class="m-lang">
+    <button class="on" id="mlBtn-en" onclick="setLang('en');updateMobileLang('en')">EN</button>
+    <button id="mlBtn-ua" onclick="setLang('ua');updateMobileLang('ua')">UA</button>
+  </div>
+</div>
 
 <!-- ① SLOGAN HERO -->
 <section class="slogan-hero">
@@ -580,26 +661,23 @@ footer{background:var(--ink);border-top:1px solid rgba(245,237,224,.07);padding:
         <iframe class="gmap sr" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3057.2!2d-74.978!3d40.0516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6b14dd69ec9cd%3A0x9fd69b6e20dc3d03!2sGlen%20Foerd!5e0!3m2!1sen!2sus!4v1710000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div class="loc-details sr">
-        <div>
-          <div class="loc-badge" data-en="📍 National Register of Historic Places, 1979" data-ua="📍 Національний реєстр історичних місць, 1979">📍 National Register of Historic Places, 1979</div>
-          <h3 class="loc-name">Glen Foerd on the Delaware</h3>
-          <p class="loc-story" data-en="Built in 1850 as a summer home by Philadelphia philanthropist Charles Macalester Jr. — a man who advised U.S. Presidents and whose estate hosted heads of state. Expanded in 1903 by Congressman Robert Foerderer into the Italianate-Classical Revival mansion it is today." data-ua="Збудований у 1850 році як заміська резиденція філадельфійського філантропа Чарльза Макалестера-молодшого — людини, яка радила президентам США, чий маєток приймав глав держав. Розширений у 1903 році конгресменом Робертом Форерером у стилі Classik Revival, яким він є сьогодні.">Built in 1850 as a summer home by Philadelphia philanthropist Charles Macalester Jr. — a man who advised U.S. Presidents and whose estate hosted heads of state. Expanded in 1903 by Congressman Robert Foerderer into the Italianate-Classical Revival mansion it is today.</p>
-          <p class="loc-story" data-en="18 acres of grounds, sweeping riverfront views, a rose garden, art gallery (Rembrandt, Van Gogh, Monet), and a stained-glass skylight staircase. The only historic mansion on the Delaware Riverfront open to the public." data-ua="18 акрів угідь, вражаючий вид на річку, трояндовий сад, художня галерея (Рембрандт, Ван Гог, Моне) і сходинки під вітражним ліхтарем. Єдиний історичний особняк на берегу Делавера, відкритий для відвідувачів.">18 acres of grounds, sweeping riverfront views, a rose garden, art gallery (Rembrandt, Van Gogh, Monet), and a stained-glass skylight staircase. The only historic mansion on the Delaware Riverfront open to the public.</p>
+        <div class="flor-img-badge" data-en="Glen Foerd on the Delaware · Est. 1850" data-ua="Glen Foerd on the Delaware · Засн. 1850">Glen Foerd on the Delaware · Est. 1850</div>
+        <h3 class="loc-name" style="margin-top:16px" data-en="A Woman Who Lived<br>by Her Own Rules" data-ua="Жінка, яка жила<br>за власними правилами">A Woman Who Lived<br>by Her Own Rules</h3>
+        <p class="loc-story" data-en="This estate was home to Florence Foerderer Tonner — an art patron and mystic who spent her life supporting women artists who broke social norms, and who left behind a will with one quiet sentence: <em>this place must be used for the good of the public.</em> That sentence stopped 800 condos from being built here in 1983." data-ua="Цей маєток був домом Флоренс Форерер Тоннер — меценатки і містика, яка все своє життя підтримувала художниць, що порушували соціальні норми, і залишила після себе заповіт з одним тихим реченням: <em>це місце має використовуватись для блага суспільства.</em> Саме це речення зупинило будівництво 800 квартир тут у 1983 році.">This estate was home to Florence Foerderer Tonner — an art patron and mystic who spent her life supporting women artists who broke social norms, and who left behind a will with one quiet sentence: <em>this place must be used for the good of the public.</em> That sentence stopped 800 condos from being built here in 1983.</p>
+        <div class="flor-bridge" style="margin-top:28px">
+          <p data-en="&ldquo;We chose this place because its walls carry the spirit of a woman who gave her whole life — to art, to others, to the future. We feel at home here.&rdquo;" data-ua="«Ми обрали це місце, бо його стіни несуть дух жінки, яка присвятила все своє життя — мистецтву, людям, майбутньому. Тут ми відчуваємо себе вдома.»">"We chose this place because its walls carry the spirit of a woman who gave her whole life — to art, to others, to the future. We feel at home here."</p>
+          <p class="bridge-connect" data-en="— The Give From Fullness team" data-ua="— Команда Give From Fullness">— The Give From Fullness team</p>
         </div>
-        <div class="loc-facts">
+        <div class="loc-facts" style="margin-top:28px">
           <div class="lf-item">
             <span class="lf-label" data-en="Address" data-ua="Адреса">Address</span>
             <p class="lf-val">5001 Grant Ave, Philadelphia, PA 19114</p>
             <p class="lf-sub" data-en="Torresdale neighborhood · 20 min from Center City · I-95 accessible" data-ua="Торресдейл · 20 хв від центру міста · Доступ з I-95">Torresdale neighborhood · 20 min from Center City · I-95 accessible</p>
           </div>
           <div class="lf-item">
-            <span class="lf-label" data-en="Setting" data-ua="Простір">Setting</span>
-            <p class="lf-val" data-en="Riverside lawn & Classical mansion" data-ua="Галявина біля річки та класичний особняк">Riverside lawn & Classical mansion</p>
-            <p class="lf-sub" data-en="Dress code: All White · Cream · Earthy Nudes · Yoga mat provided" data-ua="Дрес-код: Білий · Кремовий · Нюди · Килимок надається">Dress code: All White · Cream · Earthy Nudes · Yoga mat provided</p>
-          </div>
-          <div class="lf-item">
-            <span class="lf-label" data-en="Capacity" data-ua="Місткість">Capacity</span>
-            <p class="lf-val" data-en="60 guests · Intentionally intimate" data-ua="60 гостей · Навмисно камерний">60 guests · Intentionally intimate</p>
+            <span class="lf-label" data-en="Dress code" data-ua="Дрес-код">Dress code</span>
+            <p class="lf-val" data-en="All White · Cream · Earthy Nudes" data-ua="Білий · Кремовий · Нюди">All White · Cream · Earthy Nudes</p>
+            <p class="lf-sub" data-en="Yoga mat provided · 60 guests · Intentionally intimate" data-ua="Килимок надається · 60 гостей · Навмисно камерний">Yoga mat provided · 60 guests · Intentionally intimate</p>
           </div>
         </div>
       </div>
@@ -803,6 +881,25 @@ footer{background:var(--ink);border-top:1px solid rgba(245,237,224,.07);padding:
 
 <script>
 let lang='en';
+
+// Burger menu
+function toggleMenu(){
+  const b=document.getElementById('burger');
+  const m=document.getElementById('mobileMenu');
+  b.classList.toggle('open');
+  m.classList.toggle('open');
+  document.body.style.overflow=m.classList.contains('open')?'hidden':'';
+}
+function closeMobileMenu(){
+  document.getElementById('burger').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.body.style.overflow='';
+}
+function updateMobileLang(l){
+  document.getElementById('mlBtn-en').classList.toggle('on',l==='en');
+  document.getElementById('mlBtn-ua').classList.toggle('on',l==='ua');
+}
+
 function setLang(l){
   lang=l;
   document.querySelectorAll('.lbtn').forEach(b=>b.classList.toggle('on',b.textContent.toLowerCase()===l));
