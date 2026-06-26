@@ -449,10 +449,11 @@ footer{background:var(--ink);border-top:1px solid rgba(245,237,224,.07);padding:
 .max-w{max-width:1160px;margin:0 auto}
 
 /* ── WAVE ── */
-.wave{width:100%;height:60px;overflow:hidden;line-height:0}
-.wave svg{display:block;width:100%;height:100%}
-.wave-p{animation:wv 7s ease-in-out infinite}
-@keyframes wv{0%,100%{d:path("M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z")}50%{d:path("M0,30 C200,0 400,60 600,30 C800,0 1000,60 1200,30 L1200,60 L0,60 Z")}}
+.wave{width:100%;height:48px;overflow:hidden;line-height:0;display:block;position:relative}
+.wave svg{display:block;width:200%;height:100%;animation:waveSlide 8s linear infinite}
+@keyframes waveSlide{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+
 </style>
 </head>
 <body>
@@ -525,7 +526,7 @@ footer{background:var(--ink);border-top:1px solid rgba(245,237,224,.07);padding:
 </section>
 
 <!-- WAVE -->
-<div class="wave" style="background:var(--ink)"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path class="wave-p" d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" fill="#F5EDE0"/></svg></div>
+<div class="wave" style="background:var(--ink)"><svg viewBox="0 0 2400 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,24 C200,48 400,0 600,24 C800,48 1000,0 1200,24 C1400,48 1600,0 1800,24 C2000,48 2200,0 2400,24 L2400,48 L0,48 Z" fill="#F5EDE0"/></svg></div>
 
 <!-- ② VIDEO / CAUSE -->
 <section id="cause">
@@ -579,7 +580,7 @@ footer{background:var(--ink);border-top:1px solid rgba(245,237,224,.07);padding:
 </section>
 
 <!-- WAVE -->
-<div class="wave" style="background:var(--ink)"><svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="transform:scaleY(-1)"><path class="wave-p" d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" fill="#FAF7F2"/></svg></div>
+<div class="wave" style="background:var(--ink)"><svg viewBox="0 0 2400 48" preserveAspectRatio="none" style="transform:scaleY(-1)" xmlns="http://www.w3.org/2000/svg"><path d="M0,24 C200,48 400,0 600,24 C800,48 1000,0 1200,24 C1400,48 1600,0 1800,24 C2000,48 2200,0 2400,24 L2400,48 L0,48 Z" fill="#FAF7F2"/></svg></div>
 
 <!-- ④ WHY US -->
 <section id="whyus">
@@ -686,7 +687,7 @@ footer{background:var(--ink);border-top:1px solid rgba(245,237,224,.07);padding:
 </section>
 
 <!-- WAVE -->
-<div class="wave" style="background:var(--cream)"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path class="wave-p" d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" fill="#1B2724"/></svg></div>
+<div class="wave" style="background:var(--cream)"><svg viewBox="0 0 2400 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,24 C200,48 400,0 600,24 C800,48 1000,0 1200,24 C1400,48 1600,0 1800,24 C2000,48 2200,0 2400,24 L2400,48 L0,48 Z" fill="#1B2724"/></svg></div>
 
 <!-- ⑦ TICKETS -->
 <section id="tickets">
@@ -742,7 +743,7 @@ footer{background:var(--ink);border-top:1px solid rgba(245,237,224,.07);padding:
 </section>
 
 <!-- WAVE -->
-<div class="wave" style="background:var(--ink)"><svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="transform:scaleY(-1)"><path class="wave-p" d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" fill="#FAF7F2"/></svg></div>
+<div class="wave" style="background:var(--ink)"><svg viewBox="0 0 2400 48" preserveAspectRatio="none" style="transform:scaleY(-1)" xmlns="http://www.w3.org/2000/svg"><path d="M0,24 C200,48 400,0 600,24 C800,48 1000,0 1200,24 C1400,48 1600,0 1800,24 C2000,48 2200,0 2400,24 L2400,48 L0,48 Z" fill="#FAF7F2"/></svg></div>
 
 <!-- ⑧ RAISED COUNTER -->
 <section id="raised">
