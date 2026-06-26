@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Give From Fullness · Sep 19, 2026 · Philadelphia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --cream:#F5EDE0;
+  --ink:#1B2724;
+  --gold:#C4955A;
+  --sage:#7A9B8A;
+  --pearl:#EDE4D5;
+  --mist:#D8CFC2;
+  --white:#FAF7F2;
+  --sage-dark:#4E7163;
+}
+body{background:var(--cream);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:16px 48px;
+  background:rgba(245,237,224,.94);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(196,149,90,.15);
+}
+.nav-logo{font-family:'Playfair Display',serif;font-size:16px;font-weight:400;color:var(--ink);text-decoration:none;letter-spacing:.03em}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;opacity:.45;transition:opacity .2s;font-weight:400}
+.nav-links a:hover{opacity:1}
+.lang-pill{display:flex;background:var(--pearl);border-radius:20px;padding:3px;gap:2px}
+.lbtn{padding:5px 13px;border:none;background:none;border-radius:16px;font-size:11px;font-family:'Jost',sans-serif;cursor:pointer;color:var(--ink);opacity:.4;transition:all .25s;font-weight:400;letter-spacing:.06em}
+.lbtn.on{background:var(--ink);color:var(--cream);opacity:1}
+@media(max-width:768px){nav{padding:13px 20px}.nav-links{display:none}}
+
+/* ── SLOGAN HERO ── */
+.slogan-hero{
+  min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
+  text-align:center;padding:120px 40px 80px;
+  background:var(--ink);position:relative;overflow:hidden;
+}
+.slogan-bg{
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at 30% 50%,rgba(122,155,138,.18) 0%,transparent 60%),
+             radial-gradient(ellipse at 75% 25%,rgba(196,149,90,.1) 0%,transparent 50%),var(--ink);
+}
+.slogan-eyebrow{
+  font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:32px;position:relative;z-index:2;font-weight:400;
+  display:flex;align-items:center;gap:16px;
+}
+.slogan-eyebrow::before,.slogan-eyebrow::after{content:'';width:32px;height:1px;background:var(--gold);opacity:.5}
+.slogan-quote{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(28px,5.5vw,68px);font-weight:400;font-style:italic;
+  color:var(--cream);line-height:1.18;max-width:900px;
+  position:relative;z-index:2;
+}
+.slogan-quote em{color:var(--gold);font-style:italic}
+.slogan-divider{
+  width:1px;height:60px;background:rgba(245,237,224,.15);
+  margin:40px auto;position:relative;z-index:2;
+}
+.slogan-invite{
+  font-size:clamp(14px,2vw,18px);color:rgba(245,237,224,.55);
+  max-width:520px;line-height:1.8;position:relative;z-index:2;
+  margin-bottom:48px;
+}
+.event-badge{
+  display:flex;align-items:center;gap:24px;
+  background:rgba(245,237,224,.06);border:1px solid rgba(196,149,90,.25);
+  padding:20px 40px;position:relative;z-index:2;flex-wrap:wrap;justify-content:center;
+  margin-bottom:40px;
+}
+.badge-item{display:flex;flex-direction:column;align-items:center;gap:4px}
+.badge-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,237,224,.35);font-weight:400}
+.badge-val{font-family:'Playfair Display',serif;font-size:18px;color:var(--cream);font-weight:400}
+.badge-sep{width:1px;height:36px;background:rgba(245,237,224,.12)}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;position:relative;z-index:2}
+
+/* ── BUTTONS ── */
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 34px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;cursor:pointer;text-decoration:none;transition:all .25s;border:none}
+.btn-gold{background:var(--gold);color:var(--ink)}
+.btn-gold:hover{background:var(--cream);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--cream);border:1px solid rgba(245,237,224,.25)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.btn-dark{background:var(--ink);color:var(--cream)}
+.btn-dark:hover{background:var(--sage-dark)}
+.btn-sage{background:var(--sage);color:var(--cream)}
+.btn-sage:hover{background:var(--sage-dark)}
+
+/* ── VIDEO SECTION ── */
+#cause{background:var(--white);padding:100px 48px}
+.cause-inner{max-width:900px;margin:0 auto;text-align:center}
+.sec-eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.sec-eyebrow.center{justify-content:center}
+.ey-line{width:24px;height:1px;background:var(--sage)}
+.ey-txt{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);font-weight:400}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,52px);font-weight:400;line-height:1.08}
+.sec-title em{font-style:italic;color:var(--gold)}
+.vid-frame{
+  position:relative;aspect-ratio:16/9;background:var(--ink);
+  margin-top:48px;overflow:hidden;
+}
+.vid-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+.vid-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;min-height:340px;gap:20px}
+.play-circle{
+  width:84px;height:84px;border-radius:50%;border:1px solid rgba(196,149,90,.35);
+  display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--gold);
+  animation:breathe 3s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(196,149,90,.3)}50%{transform:scale(1.06);box-shadow:0 0 0 18px rgba(196,149,90,0)}}
+.vid-ph-txt{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,237,224,.25);font-weight:400}
+
+/* ── FOUNDATION ── */
+#foundation{background:var(--ink);padding:100px 48px}
+.found-layout{max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.found-left .sec-eyebrow .ey-line{background:var(--gold)}
+.found-left .ey-txt{color:var(--gold)}
+.found-left .sec-title{color:var(--cream)}
+.found-left .sec-title em{color:var(--gold)}
+.found-body p{font-size:16px;line-height:1.82;color:rgba(245,237,224,.62);margin-bottom:18px}
+.found-stats{display:flex;gap:36px;margin-top:32px;padding-top:32px;border-top:1px solid rgba(245,237,224,.1);flex-wrap:wrap}
+.fstat strong{display:block;font-family:'Playfair Display',serif;font-size:40px;font-weight:400;color:var(--gold);line-height:1}
+.fstat span{font-size:10px;color:rgba(245,237,224,.35);letter-spacing:.08em;text-transform:uppercase}
+.found-quote-wrap{
+  background:rgba(245,237,224,.04);border-left:2px solid var(--gold);
+  padding:28px 28px 28px 24px;margin-top:32px;
+}
+.found-quote-wrap blockquote{font-family:'Playfair Display',serif;font-size:17px;font-style:italic;font-weight:400;color:rgba(245,237,224,.82);line-height:1.6;margin-bottom:16px}
+.found-attr{display:flex;align-items:center;gap:12px}
+.f-avatar{width:40px;height:40px;border-radius:50%;background:var(--sage);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:17px;color:var(--cream);flex-shrink:0}
+.f-name{font-size:12px;color:rgba(245,237,224,.45);letter-spacing:.05em}
+/* founder photo right */
+.found-right{position:relative}
+.found-photo{
+  width:100%;aspect-ratio:3/4;object-fit:cover;
+  background:var(--sage-dark);display:block;
+  filter:grayscale(15%) brightness(.88);
+}
+.found-photo-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent 40%,rgba(26,39,38,.85));
+  padding:40px 32px 32px;
+}
+.found-photo-overlay .f-badge{
+  display:inline-block;background:var(--gold);color:var(--ink);
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;
+  padding:6px 16px;margin-bottom:10px;
+}
+.found-photo-overlay .f-caption{font-family:'Playfair Display',serif;font-size:22px;color:var(--cream);font-weight:400}
+.found-photo-overlay .f-sub{font-size:12px;color:rgba(245,237,224,.5);margin-top:4px;letter-spacing:.04em}
+.found-photo-placeholder{
+  width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,var(--sage-dark) 0%,var(--ink) 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:32px;
+  position:relative;overflow:hidden;
+}
+.found-photo-placeholder::before{
+  content:'A';position:absolute;top:-20px;left:50%;transform:translateX(-50%);
+  font-family:'Playfair Display',serif;font-size:280px;font-weight:500;
+  color:rgba(196,149,90,.07);line-height:1;pointer-events:none;
+}
+@media(max-width:900px){.found-layout{grid-template-columns:1fr;gap:48px}.found-right{order:-1}}
+@media(max-width:600px){#foundation{padding:72px 20px}}
+
+/* ── MISSION TEXT STRIP ── */
+#whyus{background:var(--cream);padding:100px 48px}
+.whyus-inner{max-width:820px;margin:0 auto;text-align:center}
+.mission-big{font-family:'Playfair Display',serif;font-size:clamp(18px,2.8vw,26px);font-style:italic;line-height:1.65;color:var(--ink);margin:36px 0}
+.mission-sub{font-size:15px;line-height:1.85;color:rgba(26,39,38,.6);margin-bottom:20px}
+.tagline-bold{font-family:'Playfair Display',serif;font-size:clamp(24px,4vw,42px);font-weight:400;color:var(--ink);margin-top:48px;line-height:1.2}
+.tagline-bold em{color:var(--gold);font-style:italic}
+
+/* ── PROGRAMME ── */
+#programme{background:var(--white);padding:100px 48px}
+.prog-inner{max-width:1160px;margin:0 auto}
+.prog-cols{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:64px}
+.prog-side{padding:52px 44px}
+.prog-side.us{background:var(--ink);color:var(--cream)}
+.prog-side.them{background:var(--sage);color:var(--cream)}
+.prog-side-label{
+  font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  margin-bottom:20px;font-weight:400;
+  color:rgba(245,237,224,.45);
+}
+.prog-side h3{font-family:'Playfair Display',serif;font-size:26px;font-weight:400;margin-bottom:28px;line-height:1.2;color:var(--cream)}
+.prog-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid rgba(245,237,224,.1);align-items:flex-start}
+.prog-item:last-child{border-bottom:none}
+.prog-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.prog-item-text{}
+.prog-item-title{font-size:15px;font-weight:400;color:var(--cream);margin-bottom:3px}
+.prog-item-desc{font-size:12.5px;color:rgba(245,237,224,.55);line-height:1.55}
+
+/* photo mosaic inside programme */
+.prog-mosaic{display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:200px 200px;gap:3px;margin-top:48px}
+.pm-cell{background-size:cover;background-position:center;transition:transform .4s;overflow:hidden}
+.pm-cell:hover{opacity:.9}
+.pm-c1{background-image:url('https://images.unsplash.com/photo-1599901860904-17e6ed7083a0?w=500&q=80');grid-row:span 2}
+.pm-c2{background-image:url('https://images.unsplash.com/photo-1545389336-cf090694435e?w=500&q=80')}
+.pm-c3{background-image:url('https://images.unsplash.com/photo-1536620300685-75aa54a22e4b?w=500&q=80')}
+.pm-c4{background-image:url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?w=500&q=80')}
+.pm-c5{background-image:url('https://images.unsplash.com/photo-1529543544282-ea669407fca3?w=500&q=80')}
+@media(max-width:900px){.prog-cols{grid-template-columns:1fr}.prog-mosaic{grid-template-rows:auto}}
+@media(max-width:600px){#programme{padding:72px 20px}.prog-side{padding:36px 28px}}
+
+/* ── DATE REMINDER ── */
+.date-strip{
+  background:var(--gold);color:var(--ink);
+  padding:32px 48px;display:flex;align-items:center;justify-content:center;
+  gap:48px;flex-wrap:wrap;text-align:center;
+}
+.ds-item{display:flex;flex-direction:column;gap:2px}
+.ds-lbl{font-size:9px;letter-spacing:.2em;text-transform:uppercase;opacity:.55;font-weight:400}
+.ds-val{font-family:'Playfair Display',serif;font-size:20px;font-weight:400}
+.ds-sep{width:1px;height:36px;background:rgba(26,39,38,.2)}
+
+/* ── LOCATION ── */
+#location{background:var(--cream);padding:100px 48px}
+.loc-inner{max-width:1160px;margin:0 auto}
+.loc-layout{display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:64px;align-items:start}
+.loc-photos{display:grid;grid-template-columns:1fr 1fr;gap:3px}
+.loc-photo{background-size:cover;background-position:center;aspect-ratio:4/3;filter:brightness(.9) saturate(.85)}
+.lp1{background-image:url('https://images.unsplash.com/photo-1505832267-823bd6f85e5a?w=600&q=80');grid-column:span 2;aspect-ratio:16/7}
+.lp2{background-image:url('https://images.unsplash.com/photo-1590774672635-4c0d4f3f53a3?w=600&q=80')}
+.lp3{background-image:url('https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&q=80')}
+.loc-details{display:flex;flex-direction:column;gap:28px}
+.loc-badge{display:inline-flex;align-items:center;gap:10px;background:var(--ink);color:var(--cream);padding:8px 20px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px;font-weight:400;width:fit-content}
+.loc-name{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,42px);font-weight:400;line-height:1.15;margin-bottom:16px}
+.loc-story{font-size:15px;line-height:1.82;color:rgba(26,39,38,.65);margin-bottom:8px}
+.loc-facts{display:flex;flex-direction:column;gap:16px;padding-top:24px;border-top:1px solid rgba(26,39,38,.1)}
+.lf-item{}
+.lf-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--sage);margin-bottom:4px;font-weight:400}
+.lf-val{font-family:'Playfair Display',serif;font-size:19px;font-weight:400;line-height:1.3}
+.lf-sub{font-size:12.5px;color:rgba(26,39,38,.47);margin-top:3px;line-height:1.5}
+.gmap{margin-top:16px;border:none;width:100%;height:220px;filter:grayscale(20%) sepia(8%)}
+@media(max-width:900px){.loc-layout{grid-template-columns:1fr;gap:36px}}
+@media(max-width:600px){#location{padding:72px 20px}}
+
+/* ── TICKETS ── */
+#tickets{background:var(--ink);padding:100px 48px}
+.tick-inner{max-width:1160px;margin:0 auto}
+.tick-inner .sec-eyebrow .ey-line{background:var(--gold)}
+.tick-inner .ey-txt{color:var(--gold)}
+.tick-inner .sec-title{color:var(--cream)}
+.tick-note{font-size:14px;color:rgba(245,237,224,.5);margin-top:12px;display:flex;align-items:center;gap:8px}
+.tick-note::before{content:'✦';color:var(--gold);font-size:9px}
+.tick-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:56px}
+.tk{background:rgba(245,237,224,.04);padding:48px 40px;display:flex;flex-direction:column;border:1px solid rgba(245,237,224,.06)}
+.tk.feat{background:var(--gold);border-color:var(--gold)}
+.tk-tier{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,237,224,.35);margin-bottom:8px;font-weight:400}
+.tk.feat .tk-tier{color:rgba(26,39,38,.55)}
+.tk-name{font-family:'Playfair Display',serif;font-size:24px;font-weight:400;color:var(--cream);margin-bottom:24px;line-height:1.2}
+.tk.feat .tk-name{color:var(--ink)}
+.tk-price{font-family:'Playfair Display',serif;font-size:50px;font-weight:400;color:var(--cream);line-height:1;margin-bottom:4px}
+.tk.feat .tk-price{color:var(--ink)}
+.tk-per{font-size:11px;color:rgba(245,237,224,.3);margin-bottom:28px;letter-spacing:.05em}
+.tk.feat .tk-per{color:rgba(26,39,38,.45)}
+.tk-list{list-style:none;flex:1;margin-bottom:32px}
+.tk-list li{font-size:13px;color:rgba(245,237,224,.58);padding:9px 0;border-bottom:1px solid rgba(245,237,224,.07);display:flex;gap:10px;align-items:flex-start;line-height:1.45}
+.tk.feat .tk-list li{color:rgba(26,39,38,.7);border-bottom-color:rgba(26,39,38,.1)}
+.tk-list li::before{content:'✦';color:var(--gold);font-size:8px;margin-top:4px;flex-shrink:0}
+.tk.feat .tk-list li::before{color:var(--ink)}
+.tk-btn{display:block;text-align:center;padding:14px;border:1px solid rgba(245,237,224,.2);color:var(--cream);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:500;cursor:pointer;background:transparent;width:100%;transition:all .2s}
+.tk-btn:hover{background:var(--cream);color:var(--ink);border-color:var(--cream)}
+.tk.feat .tk-btn{border-color:var(--ink);color:var(--ink)}
+.tk.feat .tk-btn:hover{background:var(--ink);color:var(--cream)}
+@media(max-width:900px){.tick-grid{grid-template-columns:1fr}}
+@media(max-width:600px){#tickets{padding:72px 20px}.tk{padding:36px 28px}}
+
+/* ── FUNDRAISER COUNTER ── */
+#raised{background:var(--white);padding:80px 48px;text-align:center}
+.raised-inner{max-width:700px;margin:0 auto}
+.raised-title{font-family:'Playfair Display',serif;font-size:clamp(22px,3.5vw,34px);font-weight:400;margin-bottom:8px}
+.raised-sub{font-size:14px;color:rgba(26,39,38,.5);margin-bottom:44px;line-height:1.6}
+.counter-wrap{background:var(--pearl);padding:40px;display:flex;flex-direction:column;align-items:center;gap:20px}
+.counter-num{font-family:'Playfair Display',serif;font-size:clamp(52px,9vw,96px);font-weight:400;color:var(--ink);line-height:1;letter-spacing:-.02em}
+.counter-num span{color:var(--gold)}
+.counter-bar-wrap{width:100%;max-width:400px;background:rgba(26,39,38,.1);height:6px;border-radius:3px;overflow:hidden}
+.counter-bar{height:100%;background:var(--gold);border-radius:3px;width:0%;transition:width 1.5s ease}
+.counter-goal{font-size:12px;color:rgba(26,39,38,.45);letter-spacing:.08em;text-transform:uppercase}
+
+/* ── DONATE ── */
+#donate{background:var(--sage);padding:100px 48px;text-align:center}
+.donate-inner{max-width:640px;margin:0 auto}
+.donate-inner .sec-eyebrow{justify-content:center}
+.donate-inner .ey-line{background:rgba(245,237,224,.3)}
+.donate-inner .ey-txt{color:rgba(245,237,224,.55)}
+.donate-inner .sec-title{color:var(--cream);margin-bottom:16px}
+.donate-lead{font-size:16px;color:rgba(245,237,224,.65);margin-bottom:44px;line-height:1.78}
+.amts{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
+.amt{padding:11px 24px;border:1px solid rgba(245,237,224,.25);background:transparent;color:var(--cream);font-family:'Jost',sans-serif;font-size:14px;cursor:pointer;transition:all .2s;border-radius:2px;font-weight:300}
+.amt:hover,.amt.on{background:var(--cream);color:var(--sage);border-color:var(--cream)}
+.custom-amt{
+  display:flex;gap:0;max-width:280px;margin:0 auto 32px;
+}
+.custom-amt input{
+  flex:1;padding:13px 16px;border:1px solid rgba(245,237,224,.25);
+  background:rgba(245,237,224,.08);color:var(--cream);
+  font-family:'Playfair Display',serif;font-size:18px;
+  outline:none;font-weight:400;
+}
+.custom-amt input::placeholder{color:rgba(245,237,224,.3)}
+.custom-amt .btn{border-radius:0;padding:13px 24px;font-size:10px}
+
+/* ── SPONSORS ── */
+#sponsors{background:var(--cream);padding:80px 48px}
+.spon-inner{max-width:1000px;margin:0 auto;text-align:center}
+.spon-grid{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:24px;
+  margin-top:48px;
+}
+.spon-slot{
+  width:160px;height:80px;border:1px dashed rgba(26,39,38,.18);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(26,39,38,.28);
+  font-weight:400;transition:all .2s;cursor:pointer;
+}
+.spon-slot:hover{border-color:var(--gold);color:var(--gold)}
+
+/* ── CONTACT FORM ── */
+#contact{background:var(--ink);padding:100px 48px}
+.contact-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.contact-left .sec-eyebrow .ey-line{background:var(--gold)}
+.contact-left .ey-txt{color:var(--gold)}
+.contact-left .sec-title{color:var(--cream);margin-bottom:20px}
+.contact-left p{font-size:15px;line-height:1.78;color:rgba(245,237,224,.55)}
+.contact-options{display:flex;flex-direction:column;gap:16px;margin-top:36px}
+.c-opt{
+  display:flex;align-items:center;gap:16px;padding:16px 20px;
+  background:rgba(245,237,224,.04);border:1px solid rgba(245,237,224,.07);
+  cursor:pointer;transition:all .2s;
+}
+.c-opt:hover,.c-opt.active{background:rgba(196,149,90,.1);border-color:rgba(196,149,90,.3)}
+.c-opt-icon{font-size:20px;flex-shrink:0}
+.c-opt-label{font-size:14px;color:var(--cream);font-weight:400}
+.c-opt-sub{font-size:12px;color:rgba(245,237,224,.4)}
+.contact-form{display:flex;flex-direction:column;gap:16px}
+.fg{display:flex;flex-direction:column;gap:7px}
+.fg label{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,237,224,.35);font-weight:400}
+.fg input,.fg textarea,.fg select{
+  width:100%;padding:13px 16px;
+  border:1px solid rgba(245,237,224,.1);
+  background:rgba(245,237,224,.05);color:var(--cream);
+  font-family:'Jost',sans-serif;font-size:14px;outline:none;font-weight:300;
+  transition:border-color .2s;border-radius:0;
+}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--gold)}
+.fg textarea{height:120px;resize:vertical}
+.fg select option{background:var(--ink);color:var(--cream)}
+@media(max-width:768px){.contact-inner{grid-template-columns:1fr;gap:48px}}
+@media(max-width:600px){#contact{padding:72px 20px}}
+
+/* ── FOOTER ── */
+footer{background:var(--ink);border-top:1px solid rgba(245,237,224,.07);padding:48px 48px}
+.footer-inner{max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:24px}
+.footer-brand{font-family:'Playfair Display',serif;font-size:22px;font-weight:400;color:var(--cream);margin-bottom:8px}
+.footer-sub{font-size:12px;color:rgba(245,237,224,.28);max-width:320px;line-height:1.6}
+.footer-links{display:flex;flex-direction:column;gap:8px;text-align:right}
+.footer-links a{font-size:11px;color:rgba(245,237,224,.35);text-decoration:none;letter-spacing:.06em;transition:color .2s;font-weight:400}
+.footer-links a:hover{color:var(--gold)}
+@media(max-width:600px){footer{padding:40px 20px}.footer-links{text-align:left}}
+
+/* ── MODAL ── */
+.mover{display:none;position:fixed;inset:0;background:rgba(26,39,38,.7);z-index:300;align-items:center;justify-content:center;padding:24px}
+.mover.open{display:flex}
+.mbox{background:var(--cream);padding:60px 52px;max-width:500px;width:100%;position:relative}
+.mx{position:absolute;top:20px;right:20px;background:none;border:none;font-size:18px;cursor:pointer;opacity:.35;transition:opacity .2s}
+.mx:hover{opacity:.8}
+.mbox h3{font-family:'Playfair Display',serif;font-size:30px;font-weight:400;margin-bottom:8px}
+.mbox .m-sub{font-size:14px;color:rgba(26,39,38,.5);margin-bottom:28px;line-height:1.6}
+.mfg{margin-bottom:16px}
+.mfg label{font-size:9px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:7px;color:rgba(26,39,38,.4);font-weight:400}
+.mfg input{width:100%;padding:13px 15px;border:1px solid rgba(26,39,38,.14);background:var(--white);font-family:'Jost',sans-serif;font-size:14px;color:var(--ink);outline:none;transition:border-color .2s;border-radius:0}
+.mfg input:focus{border-color:var(--gold)}
+@media(max-width:600px){.mbox{padding:40px 28px}}
+
+/* ── SCROLL REVEAL ── */
+.sr{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.sr.vis{opacity:1;transform:none}
+
+/* ── MAX-W ── */
+.max-w{max-width:1160px;margin:0 auto}
+
+/* ── WAVE ── */
+.wave{width:100%;height:60px;overflow:hidden;line-height:0}
+.wave svg{display:block;width:100%;height:100%}
+.wave-p{animation:wv 7s ease-in-out infinite}
+@keyframes wv{0%,100%{d:path("M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z")}50%{d:path("M0,30 C200,0 400,60 600,30 C800,0 1000,60 1200,30 L1200,60 L0,60 Z")}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo" data-en="Give From Fullness" data-ua="Дати з Наповнення">Give From Fullness</a>
+  <ul class="nav-links">
+    <li><a href="#cause" data-en="Our Cause" data-ua="Наша Місія">Our Cause</a></li>
+    <li><a href="#programme" data-en="Programme" data-ua="Програма">Programme</a></li>
+    <li><a href="#location" data-en="Location" data-ua="Локація">Location</a></li>
+    <li><a href="#tickets" data-en="Tickets" data-ua="Квитки">Tickets</a></li>
+    <li><a href="#donate" data-en="Donate" data-ua="Донат">Donate</a></li>
+    <li><a href="#contact" data-en="Contact" data-ua="Контакт">Contact</a></li>
+  </ul>
+  <div class="lang-pill">
+    <button class="lbtn on" onclick="setLang('en')">EN</button>
+    <button class="lbtn" onclick="setLang('ua')">UA</button>
+  </div>
+</nav>
+
+<!-- ① SLOGAN HERO -->
+<section class="slogan-hero">
+  <div class="slogan-bg"></div>
+  <div class="slogan-eyebrow" data-en="Philadelphia · September 19, 2026" data-ua="Філадельфія · 19 вересня 2026">Philadelphia · September 19, 2026</div>
+  <h1 class="slogan-quote sr">
+    <span data-en="By helping yourself —<br><em>you help others.</em><br>By helping others —<br><em>you help yourself.</em>" data-ua="Допомагаючи собі —<br><em>ти допомагаєш іншим.</em><br>Допомагаючи іншим —<br><em>ти допомагаєш собі.</em>">By helping yourself —<br><em>you help others.</em><br>By helping others —<br><em>you help yourself.</em></span>
+  </h1>
+  <div class="slogan-divider"></div>
+  <p class="slogan-invite sr" data-en="We invite you to a gathering that gives hope and heals hearts." data-ua="Запрошуємо на захід, який дає надію і зціляє серця.">We invite you to a gathering that gives hope and heals hearts.</p>
+  <div class="event-badge sr">
+    <div class="badge-item">
+      <span class="badge-label" data-en="Date" data-ua="Дата">Date</span>
+      <span class="badge-val" data-en="Saturday, September 19" data-ua="Субота, 19 вересня">Saturday, September 19</span>
+    </div>
+    <div class="badge-sep"></div>
+    <div class="badge-item">
+      <span class="badge-label" data-en="Time" data-ua="Час">Time</span>
+      <span class="badge-val">10:00 – 13:30</span>
+    </div>
+    <div class="badge-sep"></div>
+    <div class="badge-item">
+      <span class="badge-label" data-en="City" data-ua="Місто">City</span>
+      <span class="badge-val">Philadelphia, PA</span>
+    </div>
+  </div>
+  <div class="hero-btns sr">
+    <a href="#tickets" class="btn btn-gold" data-en="Get Tickets" data-ua="Придбати квиток">Get Tickets</a>
+    <a href="#donate" class="btn btn-outline" data-en="Donate" data-ua="Підтримати">Donate</a>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave" style="background:var(--ink)"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path class="wave-p" d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" fill="#F5EDE0"/></svg></div>
+
+<!-- ② VIDEO / CAUSE -->
+<section id="cause">
+  <div class="cause-inner">
+    <div class="sec-eyebrow center sr"><div class="ey-line"></div><span class="ey-txt" data-en="This Is Our Cause" data-ua="Це наша місія">This Is Our Cause</span><div class="ey-line"></div></div>
+    <h2 class="sec-title sr" style="text-align:center;margin:0 auto" data-en="We believe one person's peace<br>can fund another's <em>safety.</em>" data-ua="Ми віримо, що спокій однієї людини<br>може стати <em>захистом</em> для іншої.">We believe one person's peace<br>can fund another's <em>safety.</em></h2>
+    <div class="vid-frame sr">
+      <div class="vid-ph">
+        <div class="play-circle">▶</div>
+        <p class="vid-ph-txt" data-en="Social video · Coming soon" data-ua="Соціальне відео · Незабаром">Social video · Coming soon</p>
+        <p style="font-size:12px;color:rgba(245,237,224,.15);letter-spacing:.06em;" data-en="Paste your YouTube/Vimeo src here" data-ua="Вставте ваш YouTube/Vimeo src тут">Paste your YouTube/Vimeo src here</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ③ FOUNDATION -->
+<section id="foundation">
+  <div class="found-layout">
+    <div class="found-left">
+      <div class="sec-eyebrow sr"><div class="ey-line"></div><span class="ey-txt" data-en="Supported By" data-ua="За підтримки">Supported By</span></div>
+      <h2 class="sec-title sr" data-en="Leonid<br><em>Foundation</em>" data-ua="Leonid<br><em>Foundation</em>">Leonid<br><em>Foundation</em></h2>
+      <div class="found-body sr">
+        <p data-en="Founded in 2022 in New Jersey by Anna and Edward Murov — in the first days after Russia's full-scale invasion. It began with a single Facebook post and a synagogue filled with boxes. Today it is a stable humanitarian, cultural and advocacy platform." data-ua="Заснована у 2022 році в Нью-Джерсі Анною та Едвардом Муров — у перші дні після повномасштабного вторгнення Росії. Розпочалося з одного допису у Facebook та синагоги, заповненої коробками. Сьогодні — це стабільна гуманітарна, культурна і адвокаційна платформа.">Founded in 2022 in New Jersey by Anna and Edward Murov — in the first days after Russia's full-scale invasion. It began with a single Facebook post and a synagogue filled with boxes. Today it is a stable humanitarian, cultural and advocacy platform.</p>
+        <p data-en="Their focus: children, women, and mothers affected by war in Ukraine. Aid shipments, refugee resettlement, legal support, trauma therapy for children, and advocacy in Washington, D.C." data-ua="Їх фокус: діти, жінки та матері, постраждалі від війни в Україні. Вантажі допомоги, переселення біженців, юридична підтримка, терапія травм для дітей та адвокація у Вашингтоні.">Their focus: children, women, and mothers affected by war in Ukraine. Aid shipments, refugee resettlement, legal support, trauma therapy for children, and advocacy in Washington, D.C.</p>
+      </div>
+      <div class="found-stats sr">
+        <div class="fstat"><strong>3,000+</strong><span data-en="People helped" data-ua="Людей допомогли">People helped</span></div>
+        <div class="fstat"><strong>80+</strong><span data-en="Tons of aid" data-ua="Тонн допомоги">Tons of aid</span></div>
+        <div class="fstat"><strong>501(c)(3)</strong><span data-en="Tax-exempt" data-ua="Пільговий статус">Tax-exempt</span></div>
+      </div>
+      <div class="found-quote-wrap sr">
+        <blockquote data-en="&ldquo;We did not plan to create a large organization. We simply could not stand aside while people were losing everything.&rdquo;" data-ua="«Ми не планували створювати велику організацію. Ми просто не могли стояти осторонь, поки люди втрачали все.»">"We did not plan to create a large organization. We simply could not stand aside while people were losing everything."</blockquote>
+        <div class="found-attr">
+          <div class="f-avatar">A</div>
+          <span class="f-name" data-en="Anna Murov · Co-Founder, Leonid Foundation" data-ua="Анна Мурова · Співзасновниця, Leonid Foundation">Anna Murov · Co-Founder, Leonid Foundation</span>
+        </div>
+      </div>
+    </div>
+    <div class="found-right sr">
+      <div class="found-photo-placeholder">
+        <div style="position:relative;z-index:2;text-align:center">
+          <div class="f-badge" style="margin-bottom:12px" data-en="Photo of the founder" data-ua="Фото засновниці">Photo of the founder</div>
+          <div style="font-family:'Playfair Display',serif;font-size:26px;color:var(--cream);font-weight:400;line-height:1.2">Anna Murov</div>
+          <div style="font-size:12px;color:rgba(245,237,224,.45);margin-top:6px;letter-spacing:.04em" data-en="Co-Founder · Leonid Foundation · New Jersey, USA" data-ua="Співзасновниця · Leonid Foundation · Нью-Джерсі, США">Co-Founder · Leonid Foundation · New Jersey, USA</div>
+          <div style="margin-top:16px;font-size:12px;color:rgba(245,237,224,.25);font-style:italic" data-en="(Replace this placeholder with a real photo)" data-ua="(Замініть плейсхолдер реальним фото)">(Replace this placeholder with a real photo)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave" style="background:var(--ink)"><svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="transform:scaleY(-1)"><path class="wave-p" d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" fill="#FAF7F2"/></svg></div>
+
+<!-- ④ WHY US -->
+<section id="whyus">
+  <div class="whyus-inner">
+    <div class="sec-eyebrow center sr"><div class="ey-line"></div><span class="ey-txt" data-en="Our Philosophy" data-ua="Наша філософія">Our Philosophy</span><div class="ey-line"></div></div>
+    <p class="mission-big sr" data-en="&ldquo;We decided to create something that helps you give from fullness — because only from fullness do we create a better world.&rdquo;" data-ua="«Ми вирішили створити те, що допомагає вам благодіяти з наповнення — адже тільки так ми створюємо кращий світ.»">"We decided to create something that helps you give from fullness — because only from fullness do we create a better world."</p>
+    <p class="mission-sub sr" data-en="Each person passes on their state and improves the life of another — like links in a chain. This is how the world can climb out of where we currently live. One nourished person at a time." data-ua="Ланцюжком кожен передає стан та покращує життя іншому — як ланки ланцюга. Саме так світ зможе вибратись з того, в чому ми зараз живемо. Одна наповнена людина за раз.">Each person passes on their state and improves the life of another — like links in a chain. This is how the world can climb out of where we currently live. One nourished person at a time.</p>
+    <div class="tagline-bold sr" data-en="People need <em>people.</em>" data-ua="Людині потрібна <em>людина.</em>">People need <em>people.</em></div>
+  </div>
+</section>
+
+<!-- ⑤ PROGRAMME -->
+<section id="programme">
+  <div class="prog-inner">
+    <div class="sec-eyebrow sr"><div class="ey-line"></div><span class="ey-txt" data-en="What We're Building Together" data-ua="Що ми будуємо разом">What We're Building Together</span></div>
+    <h2 class="sec-title sr" data-en="An Exchange of <em>Energy</em>" data-ua="Обмін <em>енергією</em>">An Exchange of <em>Energy</em></h2>
+    <div class="prog-cols">
+      <div class="prog-side us sr">
+        <p class="prog-side-label" data-en="From Us → For You" data-ua="Від нас → Для тебе">From Us → For You</p>
+        <h3 data-en="Your Mental Health.<br>Your Recharge." data-ua="Ваше ментальне здоров'я.<br>Ваша перезарядка.">Your Mental Health.<br>Your Recharge.</h3>
+        <div class="prog-item"><span class="prog-icon">🌿</span><div class="prog-item-text"><p class="prog-item-title" data-en="Somatic Yoga & Breathwork" data-ua="Соматична йога та дихання">Somatic Yoga & Breathwork</p><p class="prog-item-desc" data-en="75 min of gentle nervous system reset — with live harp accompaniment" data-ua="75 хв м'якого перезавантаження нервової системи — з живою арфою">75 min of gentle nervous system reset — with live harp accompaniment</p></div></div>
+        <div class="prog-item"><span class="prog-icon">🔔</span><div class="prog-item-text"><p class="prog-item-title" data-en="Sound Healing Ceremony" data-ua="Церемонія саунд-хілінгу">Sound Healing Ceremony</p><p class="prog-item-desc" data-en="Crystal singing bowls with a guest master — vibration as medicine" data-ua="Кристалічні чаші із запрошеним майстром — вібрація як ліки">Crystal singing bowls with a guest master — vibration as medicine</p></div></div>
+        <div class="prog-item"><span class="prog-icon">🤝</span><div class="prog-item-text"><p class="prog-item-title" data-en="Connection with Like-Minded People" data-ua="Спілкування з однодумцями">Connection with Like-Minded People</p><p class="prog-item-desc" data-en="No networking. Just real conversation, soft presence, new friendships" data-ua="Без нетворкінгу. Справжня розмова, м'яка присутність, нові знайомства">No networking. Just real conversation, soft presence, new friendships</p></div></div>
+        <div class="prog-item"><span class="prog-icon">🍵</span><div class="prog-item-text"><p class="prog-item-title" data-en="Drinks & Bites — On Us" data-ua="Напої та закуски — за нашим рахунком">Drinks & Bites — On Us</p><p class="prog-item-desc" data-en="Ceremonial matcha, tiramisu bar, rosemary detox water, light bites" data-ua="Церемоніальна матча, тірамісу бар, розмаринова детокс-вода, закуски">Ceremonial matcha, tiramisu bar, rosemary detox water, light bites</p></div></div>
+        <div class="prog-item"><span class="prog-icon">🎵</span><div class="prog-item-text"><p class="prog-item-title" data-en="Ambient Vinyl DJ" data-ua="Ембієнт вінільний DJ">Ambient Vinyl DJ</p><p class="prog-item-desc" data-en="A live vinyl-only set woven through the social hour — sound that deepens silence" data-ua="Живий вінільний сет під час соціальної години — звук, що поглиблює тишу">A live vinyl-only set woven through the social hour — sound that deepens silence</p></div></div>
+        <div class="prog-item"><span class="prog-icon">🎁</span><div class="prog-item-text"><p class="prog-item-title" data-en="Sponsor Gift Bags" data-ua="Подарункові пакети від спонсорів">Sponsor Gift Bags</p><p class="prog-item-desc" data-en="Linen totes with wellness gifts — at the exit, not the entrance" data-ua="Лляні сумки з велнес-подарунками — на виході, не на вході">Linen totes with wellness gifts — at the exit, not the entrance</p></div></div>
+      </div>
+      <div class="prog-side them sr">
+        <p class="prog-side-label" data-en="From You → For Ukraine" data-ua="Від тебе → Для України">From You → For Ukraine</p>
+        <h3 data-en="Support Our<br>Fundraise." data-ua="Підтримай наш<br>збір коштів.">Support Our<br>Fundraise.</h3>
+        <div class="prog-item"><span class="prog-icon">💛</span><div class="prog-item-text"><p class="prog-item-title" data-en="100% of ticket proceeds" data-ua="100% прибутку від квитків">100% of ticket proceeds</p><p class="prog-item-desc" data-en="Every dollar from ticket sales goes directly to the Leonid Foundation" data-ua="Кожен долар від продажу квитків іде безпосередньо до Leonid Foundation">Every dollar from ticket sales goes directly to the Leonid Foundation</p></div></div>
+        <div class="prog-item"><span class="prog-icon">🇺🇦</span><div class="prog-item-text"><p class="prog-item-title" data-en="For children & women in Ukraine" data-ua="Для дітей та жінок в Україні">For children & women in Ukraine</p><p class="prog-item-desc" data-en="Aid that reaches those who need it most — in crisis zones and as refugees in the US" data-ua="Допомога, яка досягає тих, хто цього найбільше потребує — у зонах конфлікту та серед біженців у США">Aid that reaches those who need it most — in crisis zones and as refugees in the US</p></div></div>
+        <div class="prog-item"><span class="prog-icon">📦</span><div class="prog-item-text"><p class="prog-item-title" data-en="In-person donation moment" data-ua="Момент донату особисто">In-person donation moment</p><p class="prog-item-desc" data-en="QR codes at the event and on every gift bag for direct giving — from your full heart" data-ua="QR-коди на заході та на кожній сумці для прямого донату — з твого повного серця">QR codes at the event and on every gift bag for direct giving — from your full heart</p></div></div>
+        <div class="prog-item"><span class="prog-icon">💻</span><div class="prog-item-text"><p class="prog-item-title" data-en="Can't be there? Still donate." data-ua="Не можеш бути? Все одно задонать.">Can't be there? Still donate.</p><p class="prog-item-desc" data-en="Virtual Support tickets — give from wherever you are, receive the event recording" data-ua="Квитки «Віртуальна підтримка» — давай звідусіль, отримай запис заходу">Virtual Support tickets — give from wherever you are, receive the event recording</p></div></div>
+      </div>
+    </div>
+    <div class="prog-mosaic sr">
+      <div class="pm-cell pm-c1"></div>
+      <div class="pm-cell pm-c2"></div>
+      <div class="pm-cell pm-c3"></div>
+      <div class="pm-cell pm-c4"></div>
+      <div class="pm-cell pm-c5"></div>
+    </div>
+  </div>
+</section>
+
+<!-- DATE STRIP -->
+<div class="date-strip">
+  <div class="ds-item">
+    <span class="ds-lbl" data-en="Date" data-ua="Дата">Date</span>
+    <span class="ds-val" data-en="Saturday, September 19, 2026" data-ua="Субота, 19 вересня 2026">Saturday, September 19, 2026</span>
+  </div>
+  <div class="ds-sep"></div>
+  <div class="ds-item">
+    <span class="ds-lbl" data-en="Time" data-ua="Час">Time</span>
+    <span class="ds-val">10:00 – 13:30</span>
+  </div>
+  <div class="ds-sep"></div>
+  <div class="ds-item">
+    <span class="ds-lbl" data-en="Location" data-ua="Локація">Location</span>
+    <span class="ds-val" data-en="Glen Foerd, Philadelphia PA" data-ua="Glen Foerd, Філадельфія PA">Glen Foerd, Philadelphia PA</span>
+  </div>
+  <div class="ds-sep"></div>
+  <a href="#tickets" class="btn btn-dark" data-en="Reserve Your Spot" data-ua="Зарезервувати місце">Reserve Your Spot</a>
+</div>
+
+<!-- ⑥ LOCATION -->
+<section id="location">
+  <div class="loc-inner">
+    <div class="sec-eyebrow sr"><div class="ey-line"></div><span class="ey-txt" data-en="The Venue" data-ua="Локація">The Venue</span></div>
+    <h2 class="sec-title sr" data-en="A Historic Estate on the<br><em>Delaware River</em>" data-ua="Історичний маєток на березі<br><em>Делавер</em>">A Historic Estate on the<br><em>Delaware River</em></h2>
+    <div class="loc-layout">
+      <div>
+        <div class="loc-photos sr">
+          <div class="loc-photo lp1"></div>
+          <div class="loc-photo lp2"></div>
+          <div class="loc-photo lp3"></div>
+        </div>
+        <iframe class="gmap sr" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3057.2!2d-74.978!3d40.0516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6b14dd69ec9cd%3A0x9fd69b6e20dc3d03!2sGlen%20Foerd!5e0!3m2!1sen!2sus!4v1710000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+      <div class="loc-details sr">
+        <div>
+          <div class="loc-badge" data-en="📍 National Register of Historic Places, 1979" data-ua="📍 Національний реєстр історичних місць, 1979">📍 National Register of Historic Places, 1979</div>
+          <h3 class="loc-name">Glen Foerd on the Delaware</h3>
+          <p class="loc-story" data-en="Built in 1850 as a summer home by Philadelphia philanthropist Charles Macalester Jr. — a man who advised U.S. Presidents and whose estate hosted heads of state. Expanded in 1903 by Congressman Robert Foerderer into the Italianate-Classical Revival mansion it is today." data-ua="Збудований у 1850 році як заміська резиденція філадельфійського філантропа Чарльза Макалестера-молодшого — людини, яка радила президентам США, чий маєток приймав глав держав. Розширений у 1903 році конгресменом Робертом Форерером у стилі Classik Revival, яким він є сьогодні.">Built in 1850 as a summer home by Philadelphia philanthropist Charles Macalester Jr. — a man who advised U.S. Presidents and whose estate hosted heads of state. Expanded in 1903 by Congressman Robert Foerderer into the Italianate-Classical Revival mansion it is today.</p>
+          <p class="loc-story" data-en="18 acres of grounds, sweeping riverfront views, a rose garden, art gallery (Rembrandt, Van Gogh, Monet), and a stained-glass skylight staircase. The only historic mansion on the Delaware Riverfront open to the public." data-ua="18 акрів угідь, вражаючий вид на річку, трояндовий сад, художня галерея (Рембрандт, Ван Гог, Моне) і сходинки під вітражним ліхтарем. Єдиний історичний особняк на берегу Делавера, відкритий для відвідувачів.">18 acres of grounds, sweeping riverfront views, a rose garden, art gallery (Rembrandt, Van Gogh, Monet), and a stained-glass skylight staircase. The only historic mansion on the Delaware Riverfront open to the public.</p>
+        </div>
+        <div class="loc-facts">
+          <div class="lf-item">
+            <span class="lf-label" data-en="Address" data-ua="Адреса">Address</span>
+            <p class="lf-val">5001 Grant Ave, Philadelphia, PA 19114</p>
+            <p class="lf-sub" data-en="Torresdale neighborhood · 20 min from Center City · I-95 accessible" data-ua="Торресдейл · 20 хв від центру міста · Доступ з I-95">Torresdale neighborhood · 20 min from Center City · I-95 accessible</p>
+          </div>
+          <div class="lf-item">
+            <span class="lf-label" data-en="Setting" data-ua="Простір">Setting</span>
+            <p class="lf-val" data-en="Riverside lawn & Classical mansion" data-ua="Галявина біля річки та класичний особняк">Riverside lawn & Classical mansion</p>
+            <p class="lf-sub" data-en="Dress code: All White · Cream · Earthy Nudes · Yoga mat provided" data-ua="Дрес-код: Білий · Кремовий · Нюди · Килимок надається">Dress code: All White · Cream · Earthy Nudes · Yoga mat provided</p>
+          </div>
+          <div class="lf-item">
+            <span class="lf-label" data-en="Capacity" data-ua="Місткість">Capacity</span>
+            <p class="lf-val" data-en="60 guests · Intentionally intimate" data-ua="60 гостей · Навмисно камерний">60 guests · Intentionally intimate</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave" style="background:var(--cream)"><svg viewBox="0 0 1200 60" preserveAspectRatio="none"><path class="wave-p" d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" fill="#1B2724"/></svg></div>
+
+<!-- ⑦ TICKETS -->
+<section id="tickets">
+  <div class="tick-inner">
+    <div class="sec-eyebrow sr"><div class="ey-line"></div><span class="ey-txt" data-en="Join the Gathering" data-ua="Приєднуйся до зустрічі">Join the Gathering</span></div>
+    <h2 class="sec-title sr" data-en="Secure Your <em>Place</em>" data-ua="Зарезервуй своє <em>місце</em>">Secure Your <em>Place</em></h2>
+    <p class="tick-note sr" data-en="100% of ticket revenue goes directly to the Leonid Foundation charity. Your ticket IS your donation." data-ua="100% прибутку від квитків іде безпосередньо до Leonid Foundation. Ваш квиток — це і є ваш внесок.">100% of ticket revenue goes directly to the Leonid Foundation charity. Your ticket IS your donation.</p>
+    <div class="tick-grid">
+      <div class="tk sr">
+        <p class="tk-tier" data-en="Heart" data-ua="Серце">Heart</p>
+        <h3 class="tk-name" data-en="General Admission" data-ua="Загальний вхід">General Admission</h3>
+        <p class="tk-price">$120</p>
+        <p class="tk-per" data-en="per person" data-ua="на особу">per person</p>
+        <ul class="tk-list">
+          <li data-en="Somatic yoga + breathwork (75 min)" data-ua="Соматична йога + дихання (75 хв)">Somatic yoga + breathwork (75 min)</li>
+          <li data-en="Sound healing ceremony" data-ua="Церемонія саунд-хілінгу">Sound healing ceremony</li>
+          <li data-en="Welcome matcha on arrival" data-ua="Привітальна матча при вході">Welcome matcha on arrival</li>
+          <li data-en="Sponsor gift bag" data-ua="Подарунковий пакет від спонсорів">Sponsor gift bag</li>
+          <li data-en="Ambient vinyl DJ set" data-ua="Ембієнт вінільний сет">Ambient vinyl DJ set</li>
+        </ul>
+        <button class="tk-btn" onclick="openModal('General Admission','$120')" data-en="Reserve Spot" data-ua="Зарезервувати місце">Reserve Spot</button>
+      </div>
+      <div class="tk feat sr">
+        <p class="tk-tier" data-en="Soul · Most Loved" data-ua="Душа · Найпопулярніший">Soul · Most Loved</p>
+        <h3 class="tk-name" data-en="Full Experience" data-ua="Повний досвід">Full Experience</h3>
+        <p class="tk-price">$200</p>
+        <p class="tk-per" data-en="per person" data-ua="на особу">per person</p>
+        <ul class="tk-list">
+          <li data-en="Everything in General" data-ua="Все з Загального">Everything in General</li>
+          <li data-en="Tiramisu bar & light bites" data-ua="Тірамісу бар та закуски">Tiramisu bar & light bites</li>
+          <li data-en="Front-row mat placement" data-ua="Килимок у першому ряду">Front-row mat placement</li>
+          <li data-en="Premium extended gift bag" data-ua="Розширений преміальний пакет">Premium extended gift bag</li>
+          <li data-en="Name in event program" data-ua="Ім'я у програмі заходу">Name in event program</li>
+          <li data-en="Event photo delivered to you" data-ua="Фото з заходу надіслане вам">Event photo delivered to you</li>
+        </ul>
+        <button class="tk-btn" onclick="openModal('Full Experience','$200')" data-en="Reserve Spot" data-ua="Зарезервувати місце">Reserve Spot</button>
+      </div>
+      <div class="tk sr">
+        <p class="tk-tier" data-en="Light" data-ua="Світло">Light</p>
+        <h3 class="tk-name" data-en="Virtual Support" data-ua="Віртуальна підтримка">Virtual Support</h3>
+        <p class="tk-price">$35</p>
+        <p class="tk-per" data-en="give from anywhere" data-ua="підтримай звідусіль">give from anywhere</p>
+        <ul class="tk-list">
+          <li data-en="Can't attend in person?" data-ua="Не можеш бути особисто?">Can't attend in person?</li>
+          <li data-en="Your support still matters deeply" data-ua="Твоя підтримка все одно дуже важлива">Your support still matters deeply</li>
+          <li data-en="Receive the event recording" data-ua="Отримай запис заходу">Receive the event recording</li>
+          <li data-en="Guided audio practice — gift from us" data-ua="Аудіопрактика — подарунок від нас">Guided audio practice — gift from us</li>
+        </ul>
+        <button class="tk-btn" onclick="openModal('Virtual Support','$35')" data-en="Support Remotely" data-ua="Підтримати дистанційно">Support Remotely</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave" style="background:var(--ink)"><svg viewBox="0 0 1200 60" preserveAspectRatio="none" style="transform:scaleY(-1)"><path class="wave-p" d="M0,30 C200,60 400,0 600,30 C800,60 1000,0 1200,30 L1200,60 L0,60 Z" fill="#FAF7F2"/></svg></div>
+
+<!-- ⑧ RAISED COUNTER -->
+<section id="raised">
+  <div class="raised-inner">
+    <h2 class="raised-title sr" data-en="Together We've Already Raised" data-ua="Разом ми вже зібрали">Together We've Already Raised</h2>
+    <p class="raised-sub sr" data-en="Every dollar counts. Every ticket matters. Watch this number grow." data-ua="Кожен долар важливий. Кожен квиток має значення. Спостерігайте як ця цифра зростає.">Every dollar counts. Every ticket matters. Watch this number grow.</p>
+    <div class="counter-wrap sr">
+      <div class="counter-num"><span id="cNum">$0</span></div>
+      <div class="counter-bar-wrap"><div class="counter-bar" id="cBar"></div></div>
+      <p class="counter-goal" data-en="Goal: $10,000 for Leonid Foundation" data-ua="Ціль: $10,000 для Leonid Foundation">Goal: $10,000 for Leonid Foundation</p>
+    </div>
+  </div>
+</section>
+
+<!-- ⑨ DONATE -->
+<section id="donate">
+  <div class="donate-inner">
+    <div class="sec-eyebrow sr"><div class="ey-line"></div><span class="ey-txt" data-en="Can't Make It?" data-ua="Не можеш прийти?">Can't Make It?</span><div class="ey-line"></div></div>
+    <h2 class="sec-title sr" data-en="Donate <em>Anyway</em>" data-ua="Підтримай <em>все одно</em>">Donate <em>Anyway</em></h2>
+    <p class="donate-lead sr" data-en="Distance is no barrier to compassion. Every dollar goes directly to the Leonid Foundation's work with Ukrainian families — children, women, mothers in need." data-ua="Відстань не є перешкодою для співчуття. Кожен долар іде безпосередньо до роботи Leonid Foundation з українськими сім'ями.">Distance is no barrier to compassion. Every dollar goes directly to the Leonid Foundation's work with Ukrainian families — children, women, mothers in need.</p>
+    <div class="amts sr">
+      <button class="amt" onclick="pickAmt(this,25)">$25</button>
+      <button class="amt" onclick="pickAmt(this,50)">$50</button>
+      <button class="amt on" onclick="pickAmt(this,100)">$100</button>
+      <button class="amt" onclick="pickAmt(this,250)">$250</button>
+      <button class="amt" onclick="pickAmt(this,500)">$500</button>
+    </div>
+    <div class="custom-amt sr">
+      <input type="number" placeholder="Custom amount $" id="customAmt" onchange="customAmount(this.value)">
+      <button class="btn btn-dark" onclick="handleDonate()" data-en="Donate" data-ua="Задонатити">Donate</button>
+    </div>
+    <button class="btn btn-gold sr" id="donateBtn" onclick="handleDonate()" style="margin:0 auto">
+      <span id="donateTxt">Donate $100</span>
+      <span>🤍</span>
+    </button>
+  </div>
+</section>
+
+<!-- ⑩ SPONSORS -->
+<section id="sponsors">
+  <div class="spon-inner">
+    <div class="sec-eyebrow center sr"><div class="ey-line"></div><span class="ey-txt" data-en="Our Sponsors" data-ua="Наші спонсори">Our Sponsors</span><div class="ey-line"></div></div>
+    <h2 class="sec-title sr" style="text-align:center;margin:0 auto" data-en="With Support From <em>Partners</em>" data-ua="За підтримки <em>партнерів</em>">With Support From <em>Partners</em></h2>
+    <p class="sr" style="font-size:14px;color:rgba(26,39,38,.45);margin-top:12px;text-align:center" data-en="Sponsor spots coming soon. Interested? Reach out below." data-ua="Місця для спонсорів з'являться незабаром. Зацікавлені? Зв'яжіться нижче.">Sponsor spots coming soon. Interested? Reach out below.</p>
+    <div class="spon-grid sr">
+      <div class="spon-slot" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-en="Your Brand Here" data-ua="Ваш бренд тут">Your Brand Here</div>
+      <div class="spon-slot" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-en="Your Brand Here" data-ua="Ваш бренд тут">Your Brand Here</div>
+      <div class="spon-slot" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-en="Your Brand Here" data-ua="Ваш бренд тут">Your Brand Here</div>
+      <div class="spon-slot" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-en="Your Brand Here" data-ua="Ваш бренд тут">Your Brand Here</div>
+      <div class="spon-slot" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-en="Your Brand Here" data-ua="Ваш бренд тут">Your Brand Here</div>
+    </div>
+  </div>
+</section>
+
+<!-- ⑪ CONTACT -->
+<section id="contact">
+  <div class="contact-inner max-w">
+    <div class="contact-left">
+      <div class="sec-eyebrow sr"><div class="ey-line"></div><span class="ey-txt" data-en="Get in Touch" data-ua="Зв'яжіться з нами">Get in Touch</span></div>
+      <h2 class="sec-title sr" data-en="Ask a Question.<br>Become a <em>Sponsor.</em>" data-ua="Задати питання.<br>Стати <em>спонсором.</em>">Ask a Question.<br>Become a <em>Sponsor.</em></h2>
+      <p class="sr" style="font-size:15px;line-height:1.78;color:rgba(245,237,224,.52);margin-top:16px" data-en="We'd love to hear from you. Whether you have a question about the event, want to discuss a sponsorship, or simply want to say hello — fill out the form and we'll be in touch within 24 hours." data-ua="Ми були б раді почути від вас. Чи є у вас питання про захід, ви хочете обговорити спонсорство, або просто хочете привітатись — заповніть форму, і ми зв'яжемось протягом 24 годин.">We'd love to hear from you. Whether you have a question about the event, want to discuss a sponsorship, or simply want to say hello — fill out the form and we'll be in touch within 24 hours.</p>
+      <div class="contact-options sr">
+        <div class="c-opt active" onclick="selectTopic(this,'question')">
+          <span class="c-opt-icon">💬</span>
+          <div><p class="c-opt-label" data-en="I have a question" data-ua="Є питання">I have a question</p><p class="c-opt-sub" data-en="About the event, tickets, schedule" data-ua="Про захід, квитки, розклад">About the event, tickets, schedule</p></div>
+        </div>
+        <div class="c-opt" onclick="selectTopic(this,'sponsor')">
+          <span class="c-opt-icon">🤝</span>
+          <div><p class="c-opt-label" data-en="I want to become a sponsor" data-ua="Хочу стати спонсором">I want to become a sponsor</p><p class="c-opt-sub" data-en="Brand partnerships, gift bag inclusion, visibility" data-ua="Партнерство брендів, включення до пакетів, видимість">Brand partnerships, gift bag inclusion, visibility</p></div>
+        </div>
+        <div class="c-opt" onclick="selectTopic(this,'media')">
+          <span class="c-opt-icon">📸</span>
+          <div><p class="c-opt-label" data-en="Media / Press inquiry" data-ua="Медіа / Пресзапит">Media / Press inquiry</p><p class="c-opt-sub" data-en="Coverage, interviews, social collaboration" data-ua="Висвітлення, інтерв'ю, соціальна співпраця">Coverage, interviews, social collaboration</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form sr">
+      <div class="fg">
+        <label data-en="Full Name" data-ua="Повне ім'я">Full Name</label>
+        <input type="text" placeholder="Your name" id="cf-name">
+      </div>
+      <div class="fg">
+        <label data-en="Email Address" data-ua="Електронна адреса">Email Address</label>
+        <input type="email" placeholder="your@email.com" id="cf-email">
+      </div>
+      <div class="fg">
+        <label data-en="Topic" data-ua="Тема">Topic</label>
+        <select id="cf-topic">
+          <option data-en="Question about the event" data-ua="Питання про захід">Question about the event</option>
+          <option data-en="Sponsorship inquiry" data-ua="Спонсорський запит">Sponsorship inquiry</option>
+          <option data-en="Media / Press" data-ua="Медіа / Преса">Media / Press</option>
+          <option data-en="Other" data-ua="Інше">Other</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label data-en="Message" data-ua="Повідомлення">Message</label>
+        <textarea placeholder="Your message..." id="cf-msg"></textarea>
+      </div>
+      <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="submitContact()" data-en="Send Message →" data-ua="Надіслати →">Send Message →</button>
+      <p style="font-size:11px;color:rgba(245,237,224,.25);margin-top:8px;text-align:center" data-en="We respond within 24 hours." data-ua="Відповідаємо протягом 24 годин.">We respond within 24 hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <p class="footer-brand">Give From Fullness</p>
+      <p class="footer-sub" data-en="A wellness charity gathering in Philadelphia, PA · September 19, 2026 · In support of the Leonid Foundation · 501(c)(3)" data-ua="Благодійна велнес-зустріч у Філадельфії, PA · 19 вересня 2026 · На підтримку Leonid Foundation · 501(c)(3)">A wellness charity gathering in Philadelphia, PA · September 19, 2026 · In support of the Leonid Foundation · 501(c)(3)</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://leonidfoundation.org" target="_blank">leonidfoundation.org →</a>
+      <a href="https://glenfoerd.org" target="_blank">glenfoerd.org →</a>
+      <a href="#tickets" data-en="Get Tickets" data-ua="Квитки">Get Tickets</a>
+      <a href="#donate" data-en="Donate" data-ua="Донат">Donate</a>
+      <a href="#contact" data-en="Contact" data-ua="Контакт">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="mover" id="modal">
+  <div class="mbox">
+    <button class="mx" onclick="closeModal()">✕</button>
+    <h3 id="mTitle">Reserve Your Spot</h3>
+    <p class="m-sub" data-en="Fill in your details and we'll send payment instructions within 24 hours. 100% goes to Leonid Foundation." data-ua="Заповни деталі і ми надішлемо інструкції з оплати протягом 24 годин. 100% іде до Leonid Foundation.">Fill in your details and we'll send payment instructions within 24 hours. 100% goes to Leonid Foundation.</p>
+    <div class="mfg"><label data-en="Full Name" data-ua="Повне ім'я">Full Name</label><input type="text" placeholder="Your name"></div>
+    <div class="mfg"><label data-en="Email" data-ua="Емейл">Email</label><input type="email" placeholder="your@email.com"></div>
+    <div class="mfg"><label>Instagram (optional)</label><input type="text" placeholder="@handle"></div>
+    <button class="btn btn-gold" style="width:100%;justify-content:center;margin-top:8px" onclick="submitModal()">
+      <span id="mSubmit">Reserve — </span><span id="mPrice"></span>
+    </button>
+  </div>
+</div>
+
+<script>
+let lang='en';
+function setLang(l){
+  lang=l;
+  document.querySelectorAll('.lbtn').forEach(b=>b.classList.toggle('on',b.textContent.toLowerCase()===l));
+  document.querySelectorAll('[data-en]').forEach(el=>{
+    const t=el.getAttribute('data-'+l);
+    if(!t)return;
+    if(el.tagName==='INPUT'){el.placeholder=t;return}
+    if(el.tagName==='OPTION'){el.textContent=t;return}
+    el.innerHTML=t;
+  });
+  updateDonate();
+}
+
+// Scroll reveal
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('vis')}),{threshold:.1});
+document.querySelectorAll('.sr').forEach(el=>io.observe(el));
+
+// Counter animation
+let counterDone=false;
+const cIO=new IntersectionObserver(e=>e.forEach(x=>{
+  if(x.isIntersecting&&!counterDone){counterDone=true;animateCounter(2450,10000,1800)}
+}),{threshold:.3});
+const cEl=document.getElementById('raised');
+if(cEl)cIO.observe(cEl);
+
+function animateCounter(target,goal,dur){
+  const start=performance.now();
+  const bar=document.getElementById('cBar');
+  bar.style.width=(target/goal*100)+'%';
+  function step(now){
+    const t=Math.min((now-start)/dur,1);
+    const ease=t<.5?2*t*t:(1-(2*(1-t)*(1-t)));
+    const cur=Math.round(ease*target);
+    document.getElementById('cNum').textContent='$'+cur.toLocaleString();
+    if(t<1)requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+// Donate
+let selectedAmt=100;
+function pickAmt(btn,a){
+  document.querySelectorAll('.amt').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  selectedAmt=a;
+  document.getElementById('customAmt').value='';
+  updateDonate();
+}
+function customAmount(v){
+  if(v&&+v>0){selectedAmt=+v;document.querySelectorAll('.amt').forEach(b=>b.classList.remove('on'));updateDonate()}
+}
+function updateDonate(){
+  document.getElementById('donateTxt').textContent=(lang==='ua'?'Задонатити $':'Donate $')+selectedAmt;
+}
+function handleDonate(){
+  alert(lang==='ua'?`Дякуємо! Ваш донат $${selectedAmt} іде до Leonid Foundation. Незабаром ми зв'яжемося з вами.`:`Thank you! Your $${selectedAmt} donation goes to the Leonid Foundation. We'll be in touch shortly.`);
+}
+
+// Modal
+function openModal(tier,price){
+  document.getElementById('modal').classList.add('open');
+  document.getElementById('mTitle').textContent=(lang==='ua'?'Зарезервувати: ':'Reserve: ')+tier;
+  document.getElementById('mPrice').textContent=price;
+  document.getElementById('mSubmit').textContent=(lang==='ua'?'Зарезервувати — ':'Reserve — ');
+}
+function closeModal(){document.getElementById('modal').classList.remove('open')}
+document.getElementById('modal').addEventListener('click',e=>{if(e.target===document.getElementById('modal'))closeModal()});
+function submitModal(){
+  alert(lang==='ua'?'Дякуємо! Ми зв\'яжемося з вами протягом 24 годин.':'Thank you! We\'ll be in touch within 24 hours with payment instructions.');
+  closeModal();
+}
+
+// Contact
+function selectTopic(el,_t){
+  document.querySelectorAll('.c-opt').forEach(x=>x.classList.remove('active'));
+  el.classList.add('active');
+}
+function submitContact(){
+  const n=document.getElementById('cf-name').value;
+  const e=document.getElementById('cf-email').value;
+  if(!n||!e){alert(lang==='ua'?'Будь ласка, введіть ім\'я та email.':'Please enter your name and email.');return}
+  alert(lang==='ua'?`Дякуємо, ${n}! Ми зв'яжемося з вами протягом 24 годин.`:`Thank you, ${n}! We'll be in touch within 24 hours.`);
+}
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
+</script>
+</body>
+</html>
