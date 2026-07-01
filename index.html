@@ -10,20 +10,21 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 :root{
-  --cream:#F5EDE0;
-  --ink:#1B2724;
-  --gold:#C4955A;
-  --sage:#7A9B8A;
-  --pearl:#EDE4D5;
-  --mist:#D8CFC2;
-  --white:#FAF7F2;
-  --sage-dark:#4E7163;
+  --cream:#F4EFE6;
+  --ink:#1A2B38;
+  --gold:#D4A835;
+  --sage:#5B8DB8;
+  --pearl:#DDE8F0;
+  --mist:#C8DCE8;
+  --white:#FAFCFE;
+  --sage-dark:#2E6A9E;
+  --gold-dark:#B8920A;
 }
 body{background:var(--cream);color:var(--ink);font-family:'Jost',sans-serif;font-weight:300;line-height:1.6;overflow-x:hidden}
 
 /* ── NAV ── */
 nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
+  position:fixed;top:6px;left:0;right:0;z-index:200;
   display:flex;justify-content:space-between;align-items:center;
   padding:16px 48px;
   background:rgba(245,237,224,.94);backdrop-filter:blur(14px);
@@ -103,7 +104,7 @@ nav{
 /* ── SLOGAN HERO ── */
 .slogan-hero{
   min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;
-  text-align:center;padding:120px 40px 80px;
+  text-align:center;padding:126px 40px 80px;
   background:var(--ink);position:relative;overflow:hidden;
 }
 .slogan-bg{
@@ -301,6 +302,31 @@ nav{
 .lf-sub{font-size:12.5px;color:rgba(26,39,38,.47);margin-top:3px;line-height:1.5}
 .gmap{margin-top:16px;border:none;width:100%;height:220px;filter:grayscale(20%) sepia(8%)}
 @media(max-width:900px){.loc-layout{grid-template-columns:1fr;gap:36px}}
+
+/* TBA location visual */
+.loc-tba-visual{display:flex;align-items:stretch}
+.loc-tba-box{
+  background:linear-gradient(140deg,var(--sage) 0%,var(--sage-dark) 100%);
+  padding:60px 48px;text-align:center;width:100%;
+  display:flex;flex-direction:column;align-items:center;gap:20px;
+  min-height:380px;justify-content:center;
+}
+.loc-tba-icon{font-size:48px;line-height:1}
+.loc-tba-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,237,224,.5);font-weight:400}
+.loc-tba-text{font-family:'Playfair Display',serif;font-size:clamp(17px,2.5vw,22px);font-style:italic;color:var(--cream);line-height:1.55;max-width:340px;font-weight:400}
+.loc-tba-note{font-size:12px;color:rgba(245,237,224,.4);line-height:1.6;max-width:280px}
+
+/* Real founders photo */
+.found-photo-real{position:relative;overflow:hidden;width:100%}
+.found-photo-real img{width:100%;aspect-ratio:4/3;object-fit:cover;object-position:center 20%;display:block;filter:brightness(.88) saturate(.9)}
+.found-photo-caption{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(transparent 0%,rgba(26,39,38,.85) 100%);
+  padding:48px 28px 28px;
+}
+.found-photo-names{font-family:'Playfair Display',serif;font-size:22px;color:var(--cream);font-weight:400;margin:8px 0 4px}
+.found-photo-sub{font-size:12px;color:rgba(245,237,224,.45);letter-spacing:.04em}
+@media(max-width:600px){.loc-tba-box{padding:44px 28px;min-height:260px}.found-photo-real img{aspect-ratio:3/2}}
 @media(max-width:600px){#location{padding:72px 20px}}
 
 /* ── TICKETS ── */
@@ -494,12 +520,18 @@ footer{background:var(--ink);border-top:1px solid rgba(245,237,224,.07);padding:
   </div>
 </div>
 
+<!-- UKRAINE FLAG STRIP -->
+<div style="width:100%;height:6px;display:flex;position:fixed;top:0;left:0;right:0;z-index:201">
+  <div style="flex:1;background:#3A7ABF"></div>
+  <div style="flex:1;background:#F5D04A"></div>
+</div>
+<div style="height:6px"></div>
 <!-- ① SLOGAN HERO -->
 <section class="slogan-hero">
   <div class="slogan-bg"></div>
   <div class="slogan-eyebrow" data-en="Philadelphia · September 19, 2026" data-ua="Філадельфія · 19 вересня 2026">Philadelphia · September 19, 2026</div>
   <h1 class="slogan-quote sr">
-    <span data-en="By helping yourself —<br><em>you help others.</em><br>By helping others —<br><em>you help yourself.</em>" data-ua="Допомагаючи собі —<br><em>ти допомагаєш іншим.</em><br>Допомагаючи іншим —<br><em>ти допомагаєш собі.</em>">By helping yourself —<br><em>you help others.</em><br>By helping others —<br><em>you help yourself.</em></span>
+    <span data-en="By helping yourself —<br><em>you help others.</em><br>By helping others —<br><em>you help yourself.</em> 🕊️" data-ua="Допомагаючи собі —<br><em>ти допомагаєш іншим.</em><br>Допомагаючи іншим —<br><em>ти допомагаєш собі.</em>">By helping yourself —<br><em>you help others.</em><br>By helping others —<br><em>you help yourself.</em> 🕊️</span>
   </h1>
   <div class="slogan-divider"></div>
   <p class="slogan-invite sr" data-en="We invite you to a gathering that gives hope and heals hearts." data-ua="Запрошуємо на захід, який дає надію і зціляє серця.">We invite you to a gathering that gives hope and heals hearts.</p>
@@ -547,7 +579,7 @@ footer{background:var(--ink);border-top:1px solid rgba(245,237,224,.07);padding:
 <section id="foundation">
   <div class="found-layout">
     <div class="found-left">
-      <div class="sec-eyebrow sr"><div class="ey-line"></div><span class="ey-txt" data-en="Supported By" data-ua="За підтримки">Supported By</span></div>
+      <div class="sec-eyebrow sr"><div class="ey-line"></div><span class="ey-txt" data-en="Supported By 🇺🇦" data-ua="За підтримки 🇺🇦">Supported By 🇺🇦</span></div>
       <h2 class="sec-title sr" data-en="Leonid<br><em>Foundation</em>" data-ua="Leonid<br><em>Foundation</em>">Leonid<br><em>Foundation</em></h2>
       <div class="found-body sr">
         <p data-en="Founded in 2022 in New Jersey by Anna and Edward Murov — in the first days after Russia's full-scale invasion. It began with a single Facebook post and a synagogue filled with boxes. Today it is a stable humanitarian, cultural and advocacy platform." data-ua="Заснована у 2022 році в Нью-Джерсі Анною та Едвардом Муров — у перші дні після повномасштабного вторгнення Росії. Розпочалося з одного допису у Facebook та синагоги, заповненої коробками. Сьогодні — це стабільна гуманітарна, культурна і адвокаційна платформа.">Founded in 2022 in New Jersey by Anna and Edward Murov — in the first days after Russia's full-scale invasion. It began with a single Facebook post and a synagogue filled with boxes. Today it is a stable humanitarian, cultural and advocacy platform.</p>
@@ -567,12 +599,12 @@ footer{background:var(--ink);border-top:1px solid rgba(245,237,224,.07);padding:
       </div>
     </div>
     <div class="found-right sr">
-      <div class="found-photo-placeholder">
-        <div style="position:relative;z-index:2;text-align:center">
-          <div class="f-badge" style="margin-bottom:12px" data-en="Photo of the founder" data-ua="Фото засновниці">Photo of the founder</div>
-          <div style="font-family:'Playfair Display',serif;font-size:26px;color:var(--cream);font-weight:400;line-height:1.2">Anna Murov</div>
-          <div style="font-size:12px;color:rgba(245,237,224,.45);margin-top:6px;letter-spacing:.04em" data-en="Co-Founder · Leonid Foundation · New Jersey, USA" data-ua="Співзасновниця · Leonid Foundation · Нью-Джерсі, США">Co-Founder · Leonid Foundation · New Jersey, USA</div>
-          <div style="margin-top:16px;font-size:12px;color:rgba(245,237,224,.25);font-style:italic" data-en="(Replace this placeholder with a real photo)" data-ua="(Замініть плейсхолдер реальним фото)">(Replace this placeholder with a real photo)</div>
+      <div class="found-photo-real">
+        <img src="founders.jpg" alt="Anna and Edward Murov, Leonid Foundation">
+        <div class="found-photo-caption">
+          <div class="f-badge" data-en="Founders · Leonid Foundation" data-ua="Засновники · Leonid Foundation">Founders · Leonid Foundation</div>
+          <div class="found-photo-names">Anna &amp; Edward Murov</div>
+          <div class="found-photo-sub" data-en="New Jersey, USA · Est. 2022" data-ua="Нью-Джерсі, США · Засн. 2022">New Jersey, USA · Est. 2022</div>
         </div>
       </div>
     </div>
@@ -653,27 +685,24 @@ footer{background:var(--ink);border-top:1px solid rgba(245,237,224,.07);padding:
     <div class="sec-eyebrow sr"><div class="ey-line"></div><span class="ey-txt" data-en="The Venue" data-ua="Локація">The Venue</span></div>
     <h2 class="sec-title sr" data-en="A Historic Estate on the<br><em>Delaware River</em>" data-ua="Історичний маєток на березі<br><em>Делавер</em>">A Historic Estate on the<br><em>Delaware River</em></h2>
     <div class="loc-layout">
-      <div>
-        <div class="loc-photos sr">
-          <div class="loc-photo lp1"></div>
-          <div class="loc-photo lp2"></div>
-          <div class="loc-photo lp3"></div>
+      <div class="loc-tba-visual sr">
+        <div class="loc-tba-box">
+          <div class="loc-tba-icon">🌿</div>
+          <p class="loc-tba-label" data-en="Venue · To Be Announced" data-ua="Локація · Буде оголошено">Venue · To Be Announced</p>
+          <p class="loc-tba-text" data-en="We are finalizing a beautiful green estate in the Philadelphia area — a lush, private property that sets the perfect tone for a morning of restoration and giving." data-ua="Ми фіналізуємо чудову зелену садибу в районі Філадельфії — розкішна, приватна локація, яка задає ідеальний тон для ранку відновлення і давання.">We are finalizing a beautiful green estate in the Philadelphia area — a lush, private property that sets the perfect tone for a morning of restoration and giving.</p>
+          <p class="loc-tba-note" data-en="Full address shared with ticket holders two weeks before the event." data-ua="Повна адреса буде надіслана власникам квитків за два тижні до заходу.">Full address shared with ticket holders two weeks before the event.</p>
         </div>
-        <iframe class="gmap sr" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3057.2!2d-74.978!3d40.0516!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6b14dd69ec9cd%3A0x9fd69b6e20dc3d03!2sGlen%20Foerd!5e0!3m2!1sen!2sus!4v1710000000000" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
       <div class="loc-details sr">
-        <div class="flor-img-badge" data-en="Glen Foerd on the Delaware · Est. 1850" data-ua="Glen Foerd on the Delaware · Засн. 1850">Glen Foerd on the Delaware · Est. 1850</div>
-        <h3 class="loc-name" style="margin-top:16px" data-en="A Woman Who Lived<br>by Her Own Rules" data-ua="Жінка, яка жила<br>за власними правилами">A Woman Who Lived<br>by Her Own Rules</h3>
-        <p class="loc-story" data-en="This estate was home to Florence Foerderer Tonner — an art patron and mystic who spent her life supporting women artists who broke social norms, and who left behind a will with one quiet sentence: <em>this place must be used for the good of the public.</em> That sentence stopped 800 condos from being built here in 1983." data-ua="Цей маєток був домом Флоренс Форерер Тоннер — меценатки і містика, яка все своє життя підтримувала художниць, що порушували соціальні норми, і залишила після себе заповіт з одним тихим реченням: <em>це місце має використовуватись для блага суспільства.</em> Саме це речення зупинило будівництво 800 квартир тут у 1983 році.">This estate was home to Florence Foerderer Tonner — an art patron and mystic who spent her life supporting women artists who broke social norms, and who left behind a will with one quiet sentence: <em>this place must be used for the good of the public.</em> That sentence stopped 800 condos from being built here in 1983.</p>
-        <div class="flor-bridge" style="margin-top:28px">
-          <p data-en="&ldquo;We chose this place because its walls carry the spirit of a woman who gave her whole life — to art, to others, to the future. We feel at home here.&rdquo;" data-ua="«Ми обрали це місце, бо його стіни несуть дух жінки, яка присвятила все своє життя — мистецтву, людям, майбутньому. Тут ми відчуваємо себе вдома.»">"We chose this place because its walls carry the spirit of a woman who gave her whole life — to art, to others, to the future. We feel at home here."</p>
-          <p class="bridge-connect" data-en="— The Give From Fullness team" data-ua="— Команда Give From Fullness">— The Give From Fullness team</p>
-        </div>
-        <div class="loc-facts" style="margin-top:28px">
+        <div class="loc-badge" data-en="📍 Philadelphia Area, PA" data-ua="📍 Район Філадельфії, PA">📍 Philadelphia Area, PA</div>
+        <h3 class="loc-name" style="margin-top:16px" data-en="A Beautiful Green Estate<br><em>To Be Announced</em>" data-ua="Чудова зелена садиба<br><em>Буде оголошено</em>">A Beautiful Green Estate<br><em>To Be Announced</em></h3>
+        <p class="loc-story" data-en="We are choosing a lush, private green estate in the Philadelphia area — the kind of place where nature holds you, the air is clean, and the morning feels like it belongs only to you." data-ua="Ми обираємо розкішну приватну зелену садибу в районі Філадельфії — місце, де природа тримає тебе, повітря чисте, а ранок відчувається так, ніби він належить лише тобі.">We are choosing a lush, private green estate in the Philadelphia area — the kind of place where nature holds you, the air is clean, and the morning feels like it belongs only to you.</p>
+        <p class="loc-story" data-en="The full address will be shared with all ticket holders two weeks before the event." data-ua="Повна адреса буде надіслана всім власникам квитків за два тижні до заходу.">The full address will be shared with all ticket holders two weeks before the event.</p>
+        <div class="loc-facts">
           <div class="lf-item">
-            <span class="lf-label" data-en="Address" data-ua="Адреса">Address</span>
-            <p class="lf-val">5001 Grant Ave, Philadelphia, PA 19114</p>
-            <p class="lf-sub" data-en="Torresdale neighborhood · 20 min from Center City · I-95 accessible" data-ua="Торресдейл · 20 хв від центру міста · Доступ з I-95">Torresdale neighborhood · 20 min from Center City · I-95 accessible</p>
+            <span class="lf-label" data-en="Area" data-ua="Район">Area</span>
+            <p class="lf-val">Philadelphia, PA</p>
+            <p class="lf-sub" data-en="Exact location TBA · Shared with ticket holders 2 weeks before" data-ua="Точна локація уточнюється · Буде надіслана за 2 тижні до заходу">Exact location TBA · Shared with ticket holders 2 weeks before</p>
           </div>
           <div class="lf-item">
             <span class="lf-label" data-en="Dress code" data-ua="Дрес-код">Dress code</span>
@@ -820,18 +849,18 @@ footer{background:var(--ink);border-top:1px solid rgba(245,237,224,.07);padding:
         </div>
       </div>
     </div>
-    <div class="contact-form sr">
+    <form class="contact-form sr" action="https://formspree.io/f/mykqnkne" method="POST">
       <div class="fg">
         <label data-en="Full Name" data-ua="Повне ім'я">Full Name</label>
-        <input type="text" placeholder="Your name" id="cf-name">
+        <input type="text" name="name" placeholder="Your name" required>
       </div>
       <div class="fg">
         <label data-en="Email Address" data-ua="Електронна адреса">Email Address</label>
-        <input type="email" placeholder="your@email.com" id="cf-email">
+        <input type="email" name="email" placeholder="your@email.com" required>
       </div>
       <div class="fg">
         <label data-en="Topic" data-ua="Тема">Topic</label>
-        <select id="cf-topic">
+        <select name="topic">
           <option data-en="Question about the event" data-ua="Питання про захід">Question about the event</option>
           <option data-en="Sponsorship inquiry" data-ua="Спонсорський запит">Sponsorship inquiry</option>
           <option data-en="Media / Press" data-ua="Медіа / Преса">Media / Press</option>
@@ -840,11 +869,11 @@ footer{background:var(--ink);border-top:1px solid rgba(245,237,224,.07);padding:
       </div>
       <div class="fg">
         <label data-en="Message" data-ua="Повідомлення">Message</label>
-        <textarea placeholder="Your message..." id="cf-msg"></textarea>
+        <textarea name="message" placeholder="Your message..."></textarea>
       </div>
-      <button class="btn btn-gold" style="width:100%;justify-content:center" onclick="submitContact()" data-en="Send Message →" data-ua="Надіслати →">Send Message →</button>
+      <button type="submit" class="btn btn-gold" style="width:100%;justify-content:center" data-en="Send Message →" data-ua="Надіслати →">Send Message →</button>
       <p style="font-size:11px;color:rgba(245,237,224,.25);margin-top:8px;text-align:center" data-en="We respond within 24 hours." data-ua="Відповідаємо протягом 24 годин.">We respond within 24 hours.</p>
-    </div>
+    </form>
   </div>
 </section>
 
